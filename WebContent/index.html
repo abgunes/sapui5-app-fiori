@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m,sap.ui.commons"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+		<script>
+		// set up model
+		var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
+		sap.ui.getCore().setModel(oModel);
+		
+		// set up table
+		var oTable = new sap.ui.table.Table({
+			editable: false,
+			toolbar: new sap.ui.commons.Toolbar({
+				items: [
+					new sap.ui.commons.Button({
+						text: "Create user",
+						press: function(){
+							openCreateDialog();
+						}
+					}),
+					new sap.ui.commons.Button({
+						text: "Delete user",
+						press: function(){
+							var idx = oTable.getSelectedIndex();
+							if (idx == -1) return;
+							var rows = oTable.getRows();
+							var user = rows[idx].getCells();
+							openDeleteDialog(user[0].getValue());
+						}
+					})
+				]
+			})
+		});
+		
+		oTable.addColumn(new sap.ui.table.Column({
+			label: new sap.ui.commons.Label({text: "Email"}),
+			template: new sap.ui.commons.TextField().bindProperty("value", "email"),
+			editable: false,
+			sortProperty: "Email"
+		}));
+		
+		oTable.addColumn(new sap.ui.table.Column({
+			label: new sap.ui.commons.Label({text: "Firstname"}),
+			template: new sap.ui.commons.TextField().bindProperty("value", "Firstname"),
+			editable: false
+		}));
+		
+		oTable.addColumn(new sap.ui.table.Column({
+			label: new sap.ui.commons.Label({text: "Lastname"}),
+			template: new sap.ui.commons.TextField().bindProperty("value", "Lastname"),
+			editable: false
+		}));
+		
+		oTable.addColumn(new sap.ui.table.Column({
+			label: new sap.ui.commons.Label({text: "Age"}),
+			template: new sap.ui.commons.TextField().bindProperty("value", "Age"),
+			editable: false
+		}));
+		
+		oTable.addColumn(new sap.ui.table.Column({
+			label: new sap.ui.commons.Label({text: "Address"}),
+			template: new sap.ui.commons.TextField().bindProperty("value", "Address"),
+			editable: false
+		}));
+		
+		// bind the rows of a table
+		oTable.setModel(oModel);
+		oTable.bindRows("/UserSet");
+		oTable.placeAt("content");
+		</script>
+
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>
