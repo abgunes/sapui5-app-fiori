@@ -6,76 +6,93 @@
 
 		<script src="resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m,sap.ui.commons"
+				data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
 				data-sap-ui-theme="sap_bluecrystal">
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
 		<script>
 		// set up model
-		var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
-		sap.ui.getCore().setModel(oModel);
-		
-		// set up table
-		var oTable = new sap.ui.table.Table({
+	  // var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
+	  var oModel = new sap.ui.model.odata.ODataModel("https://ldai1ag3.wdf.sap.corp:44355/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
+	  sap.ui.getCore().setModel(oModel);
+
+	  
+	  var oTable = new sap.ui.table.Table({
+		  
 			editable: false,
-			toolbar: new sap.ui.commons.Toolbar({
-				items: [
+			toolbar: new sap.ui.commons.Toolbar({ 
+				items: [ 
 					new sap.ui.commons.Button({
-						text: "Create user",
-						press: function(){
+						text: "Create user", 
+						press: function() {
 							openCreateDialog();
-						}
+						}, 
 					}),
 					new sap.ui.commons.Button({
-						text: "Delete user",
-						press: function(){
+						text: "Update user's data", 
+						press: function() {
+							var idx = oTable.getSelectedIndex();
+							if (idx == -1) return;
+							var rows = oTable.getRows();
+							var user = rows[idx].getCells();
+							openUpdateDialog(user);
+						}, 
+					}),
+					new sap.ui.commons.Button({
+						text: "Delete user", 
+						press: function() {
 							var idx = oTable.getSelectedIndex();
 							if (idx == -1) return;
 							var rows = oTable.getRows();
 							var user = rows[idx].getCells();
 							openDeleteDialog(user[0].getValue());
-						}
+						}, 
 					})
 				]
-			})
+			}),
+			
 		});
-		
+
 		oTable.addColumn(new sap.ui.table.Column({
 			label: new sap.ui.commons.Label({text: "Email"}),
-			template: new sap.ui.commons.TextField().bindProperty("value", "email"),
+			template: new sap.ui.commons.TextField().bindProperty("value", "Email"),
 			editable: false,
 			sortProperty: "Email"
 		}));
-		
+
 		oTable.addColumn(new sap.ui.table.Column({
 			label: new sap.ui.commons.Label({text: "Firstname"}),
 			template: new sap.ui.commons.TextField().bindProperty("value", "Firstname"),
-			editable: false
+			sortProperty: "Firstname",
+			editable: false,
 		}));
-		
+
 		oTable.addColumn(new sap.ui.table.Column({
 			label: new sap.ui.commons.Label({text: "Lastname"}),
 			template: new sap.ui.commons.TextField().bindProperty("value", "Lastname"),
-			editable: false
+			sortProperty: "Lastname",
+			editable: false,
 		}));
-		
+
 		oTable.addColumn(new sap.ui.table.Column({
 			label: new sap.ui.commons.Label({text: "Age"}),
 			template: new sap.ui.commons.TextField().bindProperty("value", "Age"),
-			editable: false
+			sortProperty: "Age",
+			editable: false,
 		}));
-		
+
 		oTable.addColumn(new sap.ui.table.Column({
 			label: new sap.ui.commons.Label({text: "Address"}),
 			template: new sap.ui.commons.TextField().bindProperty("value", "Address"),
-			editable: false
+			sortProperty: "Address",
+			editable: false,
 		}));
 		
-		// bind the rows of a table
 		oTable.setModel(oModel);
-		oTable.bindRows("/UserSet");
+		oTable.bindRows("/ZWJ_USERSSet");
 		oTable.placeAt("content");
+			
 		</script>
 
 	</head>
