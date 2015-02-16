@@ -7,7 +7,10 @@
 		<script src="/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-resourceroots='{
+					"sap.usrmgm": "./"
+				}'>
 		</script>
 		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
 
@@ -16,7 +19,7 @@
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height: "100%",
-						name: "sap.demo.usrmgm"
+						name: "sap.usrmgm"
 					})
 				}).placeAt("content");
 			});

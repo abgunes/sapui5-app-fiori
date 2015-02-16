@@ -1,0 +1,25 @@
+<mvc:View
+  controllerName="sap.usrmgm.view.Detail"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  xmlns:f="sap.ui.layout.form">
+  <Page title="Details">
+    <content>
+      <f:SimpleForm
+        maxContainerCols="2"
+        layout="ResponsiveGridLayout">
+        <f:content>
+          <Label text="First Name" />
+          <Text text="{Firstname}" />
+          <Label text="Last Name" />
+          <Text text="{Lastname}" />
+          <Label text="Age" />
+          <Text text="{Age}" />
+          <Label text="Address" />
+          <Text text="{Address}" />
+        </f:content>
+      </f:SimpleForm>
+    </content>
+  </Page>
+</mvc:View>

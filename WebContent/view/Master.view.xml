@@ -1,0 +1,22 @@
+<mvc:View 
+  controllerName="sap.usrmgm.view.Master" displayBlock="true"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Page id="page" title="Users">
+    <content>
+      <List 
+        id="list"
+        items="{/ZWJ_USERSSet}"
+        mode="SingleSelectMaster"
+        select="onSelect">
+          <items>
+            <StandardListItem
+              xmlns="sap.m"
+              title="{Email}"
+              icon="sap-icon://employee">
+            </StandardListItem>
+          </items>
+      </List>
+    </content>
+  </Page>
+</mvc:View>

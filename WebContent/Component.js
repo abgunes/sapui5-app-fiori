@@ -1,11 +1,11 @@
-jQuery.sap.declare("sap.demo.usrmgm.Component");
+jQuery.sap.declare("sap.usrmgm.Component");
 
-sap.ui.core.UIComponent.extend("sap.demo.usrmgm.Component", {
+sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
   metadata: {
     name: "User Management Tool",
     version: "1.0",
     dependencies: {
-      libs: ["sap.m", "sap.ui.layout"]
+      libs: ["sap.m", "sap.ui.layout"],
     },
     config: {
       serviceConfig: {
@@ -25,12 +25,12 @@ sap.ui.core.UIComponent.extend("sap.demo.usrmgm.Component", {
     });
     var oMaster = sap.ui.view({
       id: "MasterView",
-      viewName: "sap.demo.usrmgm.view.Master",
+      viewName: "sap.usrmgm.view.Master",
       type: sap.ui.core.mvc.ViewType.XML
     });
     var oDetail = sap.ui.view({
       id: "DetailView",
-      viewName: "sap.demo.usrmgm.view.Detail",
+      viewName: "sap.usrmgm.view.Detail",
       type: sap.ui.core.mvc.ViewType.XML
     });
     oApp.addMasterPage(oMaster);
