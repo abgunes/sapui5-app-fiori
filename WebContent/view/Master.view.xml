@@ -3,6 +3,17 @@
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m">
   <Page id="page" title="Users">
+    <subHeader>
+      <Bar id="searchBar">
+        <contentMiddle>
+          <SearchField
+            id="searchField"
+            search="onSearch"
+            width="100%">
+          </SearchField>
+        </contentMiddle>
+      </Bar>
+    </subHeader>
     <content>
       <List 
         id="list"
@@ -18,5 +29,14 @@
           </items>
       </List>
     </content>
+    <footer>
+      <Bar>
+        <contentRight>
+          <Button
+            icon="sap-icon://add"
+            press="onAddUser" />
+        </contentRight>
+      </Bar>
+    </footer>
   </Page>
 </mvc:View>
