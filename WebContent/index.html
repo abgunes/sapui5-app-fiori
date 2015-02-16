@@ -4,7 +4,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
-		<script src="resources/sap-ui-core.js"
+		<script src="/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
 				data-sap-ui-theme="sap_bluecrystal">
@@ -13,7 +13,7 @@
 
 		<script>
 		// set up model
-	  var oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
+	  var oModel = new sap.ui.model.odata.ODataModel("https://ldai1ag3.wdf.sap.corp:44355/sap/opu/odata/sap/ZWJ_USERS_ODATA_SRV/", false);
 	  sap.ui.getCore().setModel(oModel);
 
 	  
