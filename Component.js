@@ -1,4 +1,5 @@
 jQuery.sap.declare("sap.usrmgm.Component");
+jQuery.sap.require("sap.usrmgm.MyRouter"); // a custom Router
 
 sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
   metadata: {
@@ -16,8 +17,50 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
       }
     },
     routing: {
-      // to be implemented
-    },
+      config: {
+        routerClass: sap.usrmgm.MyRouter,
+        viewType: "XML",
+        viewPath: "sap.usrmgm.view",
+        // when the router instantiates a view, it should place it in the detail part of our sap.m.SplitApp control
+        targetAggregation: "detailPages",
+        // don't want the target aggregation (detailPages) to be cleared before views are added
+        clearTarget: false
+      },
+      routes: [
+        // each configuration object has a single mandatory parameter name,
+        // all other parameters are optiona
+        {
+          // a "main" route that causes the Master view to be placed in the masterPages aggregation of the sap.m.SplitApp
+          pattern: "",
+          name: "main",
+          view: "Master",
+          targetAggregation: "masterPages",
+          targetControl: "idAppControl",
+          subroutes: [
+            {
+              // a detail view that causes the Detail view to be instantiated 
+              // and placed into the detailPages aggregation of the sap.m.SplitApp
+              pattern: "{user}/:tab:", // {user} would be matching User(6), :tab: will determine which sap.m.IconTabFilter will be pre-selected
+              name: "user",
+              view: "Detail"
+            }
+          ]
+        },
+        {
+          name: "catchallMaster",
+          view: "Master",
+          targetAggregation: "masterPages",
+          targetControl: "idAppControl",
+          subroutes: [
+            {
+              pattern: ":all*:",
+              name: "catchallDetail",
+              view: "NotFound"
+            }
+          ] 
+        }
+      ]
+    }
   },
 
   init: function() {
@@ -45,6 +88,7 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
     deviceModel.setDefaultBindingMode("OneWay");
     this.setModel(deviceModel, "device");
 
+    // the initialize method will start the routing – it will parse the initial hash, create the needed views, start listening to hash changes and trigger the router events.
     this.getRouter().initialize();
   }
 });
