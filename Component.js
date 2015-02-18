@@ -40,8 +40,8 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
             {
               // a detail view that causes the Detail view to be instantiated 
               // and placed into the detailPages aggregation of the sap.m.SplitApp
-              pattern: "{user}/:tab:", // {user} would be matching User(6), :tab: will determine which sap.m.IconTabFilter will be pre-selected
-              name: "user",
+              pattern: "{entity}/:tab:", 
+              name: "entity",
               view: "Detail"
             }
           ]
