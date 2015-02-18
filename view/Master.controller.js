@@ -24,7 +24,7 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
       if (sName === "entity") {
         aItems = oList.getItems();
         for (var i = 0; i < aItems.length; i++) {
-          if (aItems[i].getBindingContext().getPath() === "/" + oArguments.product) {
+          if (aItems[i].getBindingContext().getPath() === "/" + oArguments.entity) {
             oList.setSelectedItem(aItems[i], true);
             break;
           }
@@ -53,8 +53,8 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
     var bReplace = jQuery.device.is.phone ? false : true;
     sap.ui.core.UIComponent.getRouterFor(this).navTo("entity", {
       from: "master",
-      entity: oItem.getBindingContext().getPath().substr(1),
-      tab: "user"
+      entity: oItem.getBindingContext().getPath().substr(1)
+      // tab: 
     }, bReplace);
   }
 });
