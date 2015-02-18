@@ -56,5 +56,14 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
       entity: oItem.getBindingContext().getPath().substr(1)
       // tab: 
     }, bReplace);
+  },
+
+  onAddUser: function() {
+    sap.ui.core.UIComponent.getRouterFor(this).myNavToWithoutHash({
+      currentView: this.getView(),
+      targetViewName: "sap.usrmgm.view.AddUser",
+      targetViewType: "XML",
+      transition: "slide"
+    });
   }
 });
