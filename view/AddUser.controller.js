@@ -13,10 +13,9 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.AddUser", {
       "Email": mData.Email,
       "Firstname": mData.Firstname,
       "Lastname": mData.Lastname,
-      "Age": parseInt(mData.Age), // better way to do it?
+      "Age": parseInt(mData.Age), //TODO: better way to do it?
       "Address": mData.Address
     };
-
     // send odata create request
     oModel = this.getView().getModel();
     oModel.create("/ZWJ_USERSSet", mNewUser, {

@@ -76,6 +76,8 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
     var sServiceUrl = mConfig.serviceConfig.serviceUrl;
     var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
     this.setModel(oModel);
+    // to enable two-way binding, it does not work though, return RFC Error: Field symbol has not yet been assigned.
+    // oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 
     var deviceModel = new sap.ui.model.json.JSONModel({
             isTouch : sap.ui.Device.support.touch,

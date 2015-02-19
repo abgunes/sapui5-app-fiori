@@ -26,13 +26,13 @@
           class="editableForm">
           <f:content>
             <Label text="First Name" />
-            <Input value="{Firstname}" />
+            <Input value="{Firstname}" id="idFirstnameInput" />
             <Label text="Last Name" />
-            <Input value="{Lastname}" />
+            <Input value="{Lastname}" id="idLastnameInput" />
             <Label text="Age" />
-            <Input value="{Age}" />
+            <Input value="{Age}" id="idAgeInput" />
             <Label text="Address" />
-            <Input value="{Address}" />
+            <Input value="{Address}" id="idAddressInput" />
           </f:content>
         </f:SimpleForm>
       </l:content>
