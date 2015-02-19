@@ -9,5 +9,10 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
         oView.bindElement(sEntityPath);
       }
     }, this);
+  },
+
+  onUpdate: function() {
+    var oSimpleForm = sap.ui.getCore().byId("idDetailUserForm");
+    alert(oSimpleForm);
   }
 });
