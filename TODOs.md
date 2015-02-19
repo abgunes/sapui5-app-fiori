@@ -1,0 +1,5 @@
+- when creating a new user, the url should be /new
+- there should be a welcome (detail) page
+- the welcome (detail) page should be the landing page
+- the user should be navigate back to the welcome landing page after canceling on creation
+- the bookmarking feature should be fixed

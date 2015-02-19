@@ -25,14 +25,16 @@
           columnsM="1"
           class="editableForm">
           <f:content>
+            <Label text="Email" />
+            <Input value="{newUser>/Email}" />
             <Label text="First Name" />
-            <Input value="" />
+            <Input value="{newUser>/Firstname}" />
             <Label text="Last Name" />
-            <Input value="" />
+            <Input value="{newUser>/Lastname}" />
             <Label text="Age" />
-            <Input value="" />
+            <Input value="{newUser>/Age}" />
             <Label text="Address" />
-            <Input value="" />
+            <Input value="{newUser>/Address}" />
           </f:content>
         </f:SimpleForm>
       </l:content>
