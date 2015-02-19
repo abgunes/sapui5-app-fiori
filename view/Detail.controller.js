@@ -33,7 +33,19 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     }, function() {
       alert("Update failed");
     });
+  },
 
+  onDelete: function() {
+    var oView = this.getView();
+    var oProperty = oView.getBindingContext().getProperty();
+    var oModel = this.getView().getModel();
 
+    oModel.remove("/ZWJ_USERSSet('" + oProperty["Email"] + "')", null, function(){
+      alert("Delete successful");
+      oModel.refresh();
+    }, function() {
+      alert("Delete failed");
+    });
   }
+
 });

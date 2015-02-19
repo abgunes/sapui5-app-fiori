@@ -44,6 +44,10 @@
             text="Update"
             type="Emphasized"
             press="onUpdate" />
+          <Button
+            text="Delete"
+            type="Reject"
+            press="onDelete" />
         </contentRight>
       </Bar>
     </footer>

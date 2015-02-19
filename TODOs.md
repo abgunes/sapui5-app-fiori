@@ -6,3 +6,4 @@
 - the client side form validation should be added
 - the app should have better mobile experience
 - the views between addUser and userDetail should be reuseble (fragment?)
+- the user should be navigate back to the welcome landing page after deleting
