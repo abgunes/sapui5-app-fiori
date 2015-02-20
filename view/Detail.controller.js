@@ -1,14 +1,18 @@
 sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
   onInit : function() {
-    var oView = this.getView();
+    sap.ui.core.UIComponent.getRouterFor(this).attachRouteMatched(this.onRouteMatched, this);
+  },
 
-    sap.ui.core.UIComponent.getRouterFor(this).attachRouteMatched(function(oEvent) {
-      // when detail navigation occurs, update the binding context
-      if (oEvent.getParameter("name") === "entity") {
-        var sEntityPath = "/" + oEvent.getParameter("arguments").entity;
-        oView.bindElement(sEntityPath);
-      }
-    }, this);
+  onRouteMatched: function(oEvent) {
+    var oParameters = oEvent.getParameters();
+
+    // when detail navigation occurs, update the binding context
+    if (oParameters.name !== "detail") {
+      return;
+    }
+
+    var sEntityPath = "/" + oParameters.arguments.entity;
+    this.getView().bindElement(sEntityPath);
   },
 
   onUpdate: function() {
@@ -23,7 +27,7 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     mUserData.Address = oView.byId("idAddressInput").getValue();
 
     oModel.update("/ZWJ_USERSSet('" + oProperty["Email"] + "')", mUserData, null, function(){
-      oModel.refresh();
+      // oModel.refresh();
       alert("Update successful");
 
       console.log("/ZWJ_USERSSet('" + oProperty["Email"] + "')");

@@ -44,8 +44,8 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
             {
               // a detail view that causes the Detail view to be instantiated 
               // and placed into the detailPages aggregation of the sap.m.SplitApp
-              pattern: "{entity}/:tab:", 
-              name: "entity",
+              pattern: "{entity}", 
+              name: "detail",
               view: "Detail"
             }
           ]
