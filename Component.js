@@ -22,6 +22,10 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
         viewType: "XML",
         viewPath: "sap.usrmgm.view",
         // when the router instantiates a view, it should place it in the detail part of our sap.m.SplitApp control
+        // The target application parameter contains the name of an aggregation of the target control that contains views. 
+        // A NavContainer, for example, has an aggregation called Pages and the shell container has Content.
+        // Q: what if I change the Detail.view.xml name to SomethingElse.view.xml, do I do SomethingElsePages here?
+        // A: 2/20/2015, after I changed the Detail.view.xml (as well as its controller) name, 'detailPages' still work
         targetAggregation: "detailPages",
         // don't want the target aggregation (detailPages) to be cleared before views are added
         clearTarget: false
