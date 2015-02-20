@@ -12,7 +12,33 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     }
 
     var sEntityPath = "/" + oParameters.arguments.entity;
-    this.getView().bindElement(sEntityPath);
+    this.bindView(sEntityPath);
+  },
+
+  bindView: function(sEntityPath) {
+    var oView = this.getView();
+    oView.bindElement(sEntityPath);
+
+    // check if the data already on the client
+    if(!oView.getModel().getData(sEntityPath)) {
+      // check that the entity specified actually was found
+      oView.getElementBinding().attachEventOnce("dataReceived", jQuery.proxy(function() {
+        var oData = oView.getModel().getData(sEntityPath);
+        if (!oData) {
+          this.showEmptyView();
+        } else {
+          // 
+        }
+      }, this));
+    }
+  },
+
+  showEmptyView: function() {
+    sap.ui.core.UIComponent.getRouterFor(this).myNavToWithoutHash({ 
+      currentView : this.getView(),
+      targetViewName : "sap.usrmgm.view.NotFound",
+      targetViewType : "XML"
+    });    
   },
 
   onUpdate: function() {
