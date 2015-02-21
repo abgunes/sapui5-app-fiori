@@ -51,6 +51,7 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
           ]
         },
         {
+          // currently, this does not really take effect, the NotFound view display trigger sits in the detail page controller
           name: "catchallMaster",
           view: "Master",
           targetAggregation: "masterPages",

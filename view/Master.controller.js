@@ -10,9 +10,7 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
   },
 
   onRouteMatched: function(oEvent) {
-    var oList = this.getView().byId("list");
     var sName = oEvent.getParameter("name");
-    var oArguments = oEvent.getParameter("arguments");
 
     // wait for the list to be loaded
     jQuery.when(this.oUpdateFinishedDeferred).then(jQuery.proxy(function() {
@@ -51,5 +49,16 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
       targetViewType: "XML",
       transition: "slide"
     });
+  },
+
+  onSearch: function() {
+    var filters = [];
+    var searchString = this.getView().byId("searchField").getValue();
+    if (searchString && searchString.length > 0) {
+      filters = [ new sap.ui.model.Filter("Email", sap.ui.model.FilterOperator.Contains, searchString) ];
+    }
+
+    // update list binding
+    this.getView().byId("list").getBinding("items").filter(filters);
   }
 });
