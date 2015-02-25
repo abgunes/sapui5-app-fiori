@@ -55,7 +55,7 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
     var filters = [];
     var searchString = this.getView().byId("searchField").getValue();
     if (searchString && searchString.length > 0) {
-      filters = [ new sap.ui.model.Filter("Email", sap.ui.model.FilterOperator.Contains, searchString) ];
+      filters = [ new sap.ui.model.Filter("Uuid", sap.ui.model.FilterOperator.Contains, searchString) ];
     }
 
     // update list binding

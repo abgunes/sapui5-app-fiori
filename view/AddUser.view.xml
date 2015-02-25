@@ -5,7 +5,7 @@
   xmlns="sap.m"
   xmlns:l="sap.ui.layout"
   xmlns:f="sap.ui.layout.form">
-  <Page title="Add User">
+  <Page title="Add New">
     <l:Grid
       defaultSpan="L12 M12 S12"
       width="auto">
@@ -25,16 +25,14 @@
           columnsM="1"
           class="editableForm">
           <f:content>
+            <Label text="UUID" />
+            <Input value="{newUser>/Uuid}" />
             <Label text="Email" />
             <Input value="{newUser>/Email}" />
             <Label text="First Name" />
-            <Input value="{newUser>/Firstname}" />
+            <Input value="{newUser>/Firtname}" />
             <Label text="Last Name" />
             <Input value="{newUser>/Lastname}" />
-            <Label text="Age" />
-            <Input value="{newUser>/Age}" />
-            <Label text="Address" />
-            <Input value="{newUser>/Address}" />
           </f:content>
         </f:SimpleForm>
       </l:content>

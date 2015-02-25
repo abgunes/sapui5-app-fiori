@@ -17,7 +17,7 @@
     <content>
       <List 
         id="list"
-        items="{/ZWJ_USERSSet}"
+        items="{/YWJ_USERSSet}"
         mode="SingleSelectMaster"
         select="onSelect">
           <items>

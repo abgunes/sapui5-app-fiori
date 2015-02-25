@@ -47,19 +47,13 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     var oModel = this.getView().getModel();
     var mUserData = {};
 
-    mUserData.Firstname = oView.byId("idFirstnameInput").getValue();
-    mUserData.Lastname = oView.byId("idLastnameInput").getValue();
-    mUserData.Age = parseInt(oView.byId("idAgeInput").getValue()); //TODO: better way to do it?
-    mUserData.Address = oView.byId("idAddressInput").getValue();
+    mUserData.Email = oView.byId("idEmail").getValue();
+    mUserData.Firtname = oView.byId("idFirtname").getValue();
+    mUserData.Lastname = oView.byId("idLastname").getValue();
 
-    oModel.update("/ZWJ_USERSSet('" + oProperty["Email"] + "')", mUserData, null, function(){
-      // oModel.refresh();
+    oModel.update("/YWJ_USERSSet('" + oProperty["Uuid"] + "')", mUserData, null, function(){
+      oModel.refresh();
       alert("Update successful");
-
-      console.log("/ZWJ_USERSSet('" + oProperty["Email"] + "')");
-      console.log(mUserData);
-      console.log(oProperty["Email"]);
-
     }, function() {
       alert("Update failed");
     });
@@ -70,7 +64,7 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     var oProperty = oView.getBindingContext().getProperty();
     var oModel = this.getView().getModel();
 
-    oModel.remove("/ZWJ_USERSSet('" + oProperty["Email"] + "')", null, function(){
+    oModel.remove("/YWJ_USERSSet('" + oProperty["Uuid"] + "')", null, function(){
       alert("Delete successful");
       oModel.refresh();
     }, function() {

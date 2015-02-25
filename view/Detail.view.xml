@@ -25,14 +25,14 @@
           columnsM="1"
           class="editableForm">
           <f:content>
+            <Label text="UUID" />
+            <Input value="{Uuid}" id="idUuid" />
+            <Label text="Email" />
+            <Input value="{Email}" id="idEmail" />
             <Label text="First Name" />
-            <Input value="{Firstname}" id="idFirstnameInput" />
+            <Input value="{Firtname}" id="idFirtname" />
             <Label text="Last Name" />
-            <Input value="{Lastname}" id="idLastnameInput" />
-            <Label text="Age" />
-            <Input value="{Age}" id="idAgeInput" />
-            <Label text="Address" />
-            <Input value="{Address}" id="idAddressInput" />
+            <Input value="{Lastname}" id="idLastname" />
           </f:content>
         </f:SimpleForm>
       </l:content>

@@ -10,15 +10,14 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.AddUser", {
   onSave: function() {
     var mData = this.getView().getModel("newUser").getData();
     var mNewUser = {
+      "Uuid": mData.Uuid,
       "Email": mData.Email,
-      "Firstname": mData.Firstname,
-      "Lastname": mData.Lastname,
-      "Age": parseInt(mData.Age), //TODO: better way to do it?
-      "Address": mData.Address
+      "Firtname": mData.Firtname,
+      "Lastname": mData.Lastname
     };
     // send odata create request
     oModel = this.getView().getModel();
-    oModel.create("/ZWJ_USERSSet", mNewUser, {
+    oModel.create("/YWJ_USERSSet", mNewUser, {
       success: jQuery.proxy(function(mResponse) {
         jQuery.sap.require("sap.m.MessageToast");
         sap.m.MessageToast.show("Hello " + mNewUser.Email)
