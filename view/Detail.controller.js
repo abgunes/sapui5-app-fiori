@@ -47,11 +47,12 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     var oModel = this.getView().getModel();
     var mUserData = {};
 
+    mUserData.Uuid = oProperty.Uuid;
     mUserData.Email = oView.byId("idEmail").getValue();
     mUserData.Firtname = oView.byId("idFirtname").getValue();
     mUserData.Lastname = oView.byId("idLastname").getValue();
 
-    oModel.update("/YWJ_USERSSet('" + oProperty["Uuid"] + "')", mUserData, null, function(){
+    oModel.update("/YWJ_USERSSet('" + oProperty.Uuid + "')", mUserData, null, function(){
       oModel.refresh();
       alert("Update successful");
     }, function() {
