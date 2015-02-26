@@ -1,3 +1,5 @@
+jQuery.sap.declare("sap.usrmgm.util.Formatter");
+
 sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
   onInit: function() {
     this.oUpdateFinishedDeferred = jQuery.Deferred();

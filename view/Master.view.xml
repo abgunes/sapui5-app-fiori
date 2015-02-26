@@ -21,11 +21,21 @@
         mode="SingleSelectMaster"
         select="onSelect">
           <items>
-            <StandardListItem
+            <ObjectListItem
               xmlns="sap.m"
-              title="{Email}"
+              title="{
+                  parts: [
+                     {path: 'Firstname'},
+                     {path: 'Lastname'}
+                  ],
+                  formatter: 'sap.usrmgm.util.Formatter.joinFullname'
+              }"
+              number="{
+                     {path: 'Uuid'},
+                     formatter: 'sap.usrmgm.util.Formatter.uuidPrettifier'
+              }"
               icon="sap-icon://employee">
-            </StandardListItem>
+            </ObjectListItem>
           </items>
       </List>
     </content>
