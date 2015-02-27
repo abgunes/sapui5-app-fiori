@@ -35,6 +35,24 @@
             <Input value="{Lastname}" id="idLastname" />
           </f:content>
         </f:SimpleForm>
+        <IconTabBar>
+					<items>
+						<IconTabFilter
+							icon="sap-icon://supplier">
+							<f:SimpleForm
+								id="idProfileForm"
+								midWidth="800" >
+								<core:Title text="Profile" />
+								<label text="User ID" />
+								<Text text="{Uuid}" />
+								<label text="Email" />
+								<Text text="{Email}" />
+								<label text="Full Name" />
+								<Text text="{Firtname} {Lastname}" />
+							</f:SimpleForm>
+						</IconTabFilter>
+					</items>
+        </IconTabBar>
       </l:content>
     </l:Grid>
     <footer>
