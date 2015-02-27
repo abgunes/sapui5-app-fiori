@@ -25,13 +25,13 @@
               xmlns="sap.m"
               title="{
                   parts: [
-                     {path: 'Firstname'},
+                     {path: 'Firtname'},
                      {path: 'Lastname'}
                   ],
                   formatter: 'sap.usrmgm.util.Formatter.joinFullname'
               }"
               number="{
-                     {path: 'Uuid'},
+                     path: 'Uuid',
                      formatter: 'sap.usrmgm.util.Formatter.uuidPrettifier'
               }"
               icon="sap-icon://employee">
