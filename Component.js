@@ -73,14 +73,23 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
 
     var mConfig = this.getMetadata().getConfig();
     var rootPath = jQuery.sap.getModulePath("sap.usrmgm");
-
+    var sServiceUrl = mConfig.serviceConfig.serviceUrl;
+      
     var i18nModel = new sap.ui.model.resource.ResourceModel({
       bundleUrl: [rootPath, mConfig.resourceBundle].join('/')
-    });
+    });   
+      
+    var bIsMocked = jQuery.sap.getUriParameters().get("mock") === "true";
+    // start the mock server for the domain model
+    if (bIsMocked) {
+      this._startMockServer(sServiceUrl);
+      var oMockModel = new sap.ui.model.odata.ODataModel("http://mymockserver/", true);
+      this.setModel(oMockModel);
+    } else {
+      var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+      this.setModel(oModel);
+    }
 
-    var sServiceUrl = mConfig.serviceConfig.serviceUrl;
-    var oModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-    this.setModel(oModel);
     // to enable two-way binding, it does not work though, return RFC Error: Field symbol has not yet been assigned.
     // oModel.setDefaultBindingMode(sap.ui.model.BindingMode.TwoWay);
 
@@ -97,5 +106,19 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
 
     // the initialize method will start the routing – it will parse the initial hash, create the needed views, start listening to hash changes and trigger the router events.
     this.getRouter().initialize();
+  },
+    
+  _startMockServer : function () {
+      jQuery.sap.require("sap.ui.core.util.MockServer");
+      var oMockServer = new sap.ui.core.util.MockServer({
+          rootUri: "http://mymockserver/"
+      });
+
+      oMockServer.simulate("model/metadata.xml", "model/");
+      oMockServer.start();
+
+      sap.m.MessageToast.show("Running in demo mode with mock data.", {
+          duration: 2000
+      });
   }
 });

@@ -1,0 +1,20 @@
+ [    
+      {
+        "Uuid" : "001",
+        "Email" : "john.doe@example.com",
+        "Firtname" : "John",
+        "Lastname" : "Doe"
+      },
+      {
+        "Uuid" : "002",
+        "Email" : "foo.bar@example.com",
+        "Firtname" : "Foo",
+        "Lastname" : "Bar"
+      },
+      {
+        "Uuid" : "003",
+        "Email" : "will.smith@example.com",
+        "Firtname" : "Will",
+        "Lastname" : "Smith"
+      }
+]
