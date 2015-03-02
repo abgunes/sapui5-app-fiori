@@ -33,6 +33,10 @@
             <Input value="{Firtname}" id="idFirtname" />
             <Label text="Last Name" />
             <Input value="{Lastname}" id="idLastname" />
+            <Label text="Age" />
+            <Input value="{Age}" id="idAge" />
+            <Label text="Phone" />
+            <Input value="{Phone}" id="idPhone" />
           </f:content>
         </f:SimpleForm>
         <IconTabBar>
@@ -49,6 +53,10 @@
 								<Text text="{Email}" />
 								<label text="Full Name" />
 								<Text text="{Firtname} {Lastname}" />
+								<label text="Age" />
+								<Text text="{Age}" />
+								<label text="Phone" />
+								<Text text="{Phone}" />
 							</f:SimpleForm>
 						</IconTabFilter>
 					</items>

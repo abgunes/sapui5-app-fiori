@@ -13,7 +13,9 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.AddUser", {
       "Uuid": mData.Uuid,
       "Email": mData.Email,
       "Firtname": mData.Firtname,
-      "Lastname": mData.Lastname
+      "Lastname": mData.Lastname,
+      "Age": parseInt(mData.Age),
+      "Phone": parseInt(mData.Phone)
     };
     // send odata create request
     oModel = this.getView().getModel();

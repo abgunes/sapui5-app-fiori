@@ -33,6 +33,10 @@
             <Input value="{newUser>/Firtname}" />
             <Label text="Last Name" />
             <Input value="{newUser>/Lastname}" />
+            <Label text="Age" />
+            <Input value="{newUser>/Age}" />
+            <Label text="Phone" />
+            <Input value="{newUser>/Phone}" />
           </f:content>
         </f:SimpleForm>
       </l:content>

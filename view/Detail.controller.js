@@ -51,7 +51,9 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     mUserData.Email = oView.byId("idEmail").getValue();
     mUserData.Firtname = oView.byId("idFirtname").getValue();
     mUserData.Lastname = oView.byId("idLastname").getValue();
-
+    mUserData.Age = parseInt(oView.byId("idAge").getValue());
+    mUserData.Phone= parseInt(oView.byId("idPhone").getValue());
+      
     oModel.update("/YWJ_USERSSet('" + oProperty.Uuid + "')", mUserData, null, function(){
       oModel.refresh();
       alert("Update successful");
