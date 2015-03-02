@@ -73,6 +73,21 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Detail", {
     }, function() {
       alert("Delete failed");
     });
-  }
+  },
+    
+  onCall: function() {
+    var oData = this.getView().getBindingContext().getProperty();
+    sap.m.URLHelper.triggerTel(oData.Phone);
+  },
+    
+  onText: function() {
+    var oData = this.getView().getBindingContext().getProperty();
+    sap.m.URLHelper.triggerSms(oData.Phone);
+  },
+    
+  onEmail: function() {
+    var oData = this.getView().getBindingContext().getProperty();
+    sap.m.URLHelper.triggerEmail(oData.Email);
+  },
 
 });

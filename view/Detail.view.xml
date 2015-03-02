@@ -65,6 +65,20 @@
     </l:Grid>
     <footer>
       <Bar>
+        <contentLeft>
+          <Button
+            text="Call"
+            icon="sap-icon://outgoing-call"
+            press="onCall" />
+          <Button
+            text="Text"
+            icon="sap-icon://discussion"
+            press="onText" />
+          <Button
+            text="Call"
+            icon="sap-icon://email"
+            press="onEmail" />
+        </contentLeft>
         <contentRight>
           <Button 
             text="Update"
