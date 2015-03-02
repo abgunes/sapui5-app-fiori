@@ -1,4 +1,5 @@
 jQuery.sap.require("sap.usrmgm.util.Formatter");
+jQuery.sap.require("sap.usrmgm.util.Grouper");
 
 sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
   onInit: function() {
@@ -62,5 +63,20 @@ sap.ui.core.mvc.Controller.extend("sap.usrmgm.view.Master", {
 
     // update list binding
     this.getView().byId("list").getBinding("items").filter(filters);
+  },
+    
+  onGroup: function(evt) {
+    var sorters = [];
+    var item = evt.getParameter("selectedItem"); 
+    var key = (item) ? item.getKey() : null;
+    if ("Age" === key) {
+        var grouper = sap.usrmgm.util.Grouper[key];
+        sorters.push(new sap.ui.model.Sorter(key, true, grouper)); 
+    }
+     
+    // update binding
+    var list = this.getView().byId("list");
+    var oBinding = list.getBinding("items");
+    oBinding.sort(sorters);
   }
 });
