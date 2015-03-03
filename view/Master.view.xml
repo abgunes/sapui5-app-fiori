@@ -21,7 +21,6 @@
         items="{/YWJ_USERSSet}"
         mode="SingleSelectMaster"
         growing="true"
-        growingScrollToLoad="true"
         growingThreshold="2"
         select="onSelect">
           <items>
