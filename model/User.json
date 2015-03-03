@@ -3,18 +3,24 @@
         "Uuid" : "001",
         "Email" : "john.doe@example.com",
         "Firtname" : "John",
-        "Lastname" : "Doe"
+        "Lastname" : "Doe",
+        "Age" : 32,
+        "Phone" : 123
       },
       {
         "Uuid" : "002",
         "Email" : "foo.bar@example.com",
         "Firtname" : "Foo",
-        "Lastname" : "Bar"
+        "Lastname" : "Bar",
+        "Age" : 17,
+        "Phone" : 143
       },
       {
         "Uuid" : "003",
         "Email" : "will.smith@example.com",
         "Firtname" : "Will",
-        "Lastname" : "Smith"
+        "Lastname" : "Smith",
+        "Age" : 33,
+        "Phone" : 223
       }
 ]

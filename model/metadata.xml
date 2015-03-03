@@ -22,6 +22,12 @@
 				<Property Name="Lastname" Type="Edm.String" Nullable="false"
 					MaxLength="100" sap:label="Character 100" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Age" Type="Edm.Int32" Nullable="false"
+					MaxLength="10" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+				<Property Name="Phone" Type="Edm.Int32" Nullable="false"
+					MaxLength="10" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" />
 			</EntityType>
 			<EntityContainer Name="YWJ_USERS_SRV_Entities"
 				m:IsDefaultEntityContainer="true">
