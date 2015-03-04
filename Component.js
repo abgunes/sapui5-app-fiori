@@ -13,7 +13,7 @@ sap.ui.core.UIComponent.extend("sap.usrmgm.Component", {
       resourceBundle: "i18n/messageBundle.properties",
       serviceConfig: {
         name: "AG3",
-        serviceUrl: "https://ldai1ag3.wdf.sap.corp:44355/sap/opu/odata/sap/YWJ_USERS_SRV/"
+        serviceUrl: "/sap/opu/odata/sap/YWJ_USERS_SRV/"
       }
     },
     routing: {
