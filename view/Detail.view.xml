@@ -47,15 +47,15 @@
 								id="idProfileForm"
 								midWidth="800" >
 								<core:Title text="Profile" />
-								<label text="User ID" />
+								<Label text="User ID" />
 								<Text text="{Uuid}" />
-								<label text="Email" />
+								<Label text="Email" />
 								<Text text="{Email}" />
-								<label text="Full Name" />
+								<Label text="Full Name" />
 								<Text text="{Firtname} {Lastname}" />
-								<label text="Age" />
+								<Label text="Age" />
 								<Text text="{Age}" />
-								<label text="Phone" />
+								<Label text="Phone" />
 								<Text text="{Phone}" />
 							</f:SimpleForm>
 						</IconTabFilter>
